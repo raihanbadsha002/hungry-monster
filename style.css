@@ -1,0 +1,73 @@
+.input-group{
+    width: 50%;
+}
+
+.mealItem{
+    border-radius: 10px;
+}
+.mealItem img{
+    border-radius: 10px 10px 0px 0px;
+    height: 230px;
+    transition: all .5s ease-in;
+}
+.mealItem img:hover{
+    transform: scale(0.9);
+}
+.mealItem:hover{
+    cursor: pointer;
+
+}
+.card-body p{
+    line-height: 8px;
+    
+}
+.card-body h2, h5{
+   font-family: arial ; 
+   font-weight: 700;
+    
+}
+.noResult{
+   color:rgb(245, 0, 0);
+   text-align: center;
+   position: relative
+}
+.noResult h3{
+   position: absolute;
+   left: 320px;
+}
+@media only screen and (max-width: 1024px) {
+    .noResult h3{
+        position: absolute;
+        left: 240px;
+     }
+  }
+@media only screen and (max-width: 800px) {
+    .input-group{
+        width: 65%;
+    }
+    .noResult h3{
+        position: absolute;
+        left: 130px;
+     }
+  }
+@media only screen and (max-width: 768px) {
+    .input-group{
+        width: 65%;
+    }
+    .noResult h3{
+        position: absolute;
+        left: 130px;
+     }
+  }
+@media only screen and (max-width: 640px) {
+    .input-group{
+        width: 75%;
+    }
+    .noResult h3{
+        position: absolute;
+        left: 60px;
+     }
+     #MealItemsDiv img{
+         height: 400px;
+     }
+  }

@@ -30,6 +30,7 @@ const getMealItems = (mealItems) => {
         mealItems.meals.forEach(meal => {
             mealItemsHTML += `
            <div class="col-md-3 mb-4">
+           <a href="#detailsMeal">
              <div onclick="showDetails('${meal.strMeal}')" class="card bg-light mealItem shadow">
                 <img src="${meal.strMealThumb}" class="img-fluid" alt="meal">
                 <div class="card-body">
@@ -37,6 +38,7 @@ const getMealItems = (mealItems) => {
                 </div>
               </div>
            </div>
+           </a>
             `;
         });
         MealItemsDiv.classList.remove('noResult'); 
@@ -61,7 +63,7 @@ fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealData}`)
 
 const getDetailsMeal = mealDetails => {
     detailsMeal.innerHTML = `
-        <div id="mealCard" class="card" style="width: 35rem;">
+      <div id="mealCard" class="card" style="width: 35rem;">
         <img src="${mealDetails.strMealThumb}" alt="Meal">
         <div class="card-body">
             <h2 class="card-title py-2">${mealDetails.strMeal}</h2>

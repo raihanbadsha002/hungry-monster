@@ -55,35 +55,37 @@ const getMealItems = (mealItems) => {
 
 const showDetails = (mealData) => {
 
-fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealData}`)
-.then(response => response.json())
-.then(data => getDetailsMeal(data.meals[0]))
-;
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealData}`)
+    .then(response => response.json())
+    .then(data => getDetailsMeal(data.meals[0]))
+    ;
 }
+
 
 const getDetailsMeal = mealDetails => {
     detailsMeal.innerHTML = `
-      <div id="mealCard" class="card" style="width: 35rem;">
-        <img src="${mealDetails.strMealThumb}" alt="Meal">
-        <div class="card-body">
-            <h2 class="card-title py-2">${mealDetails.strMeal}</h2>
-            <h5 class="pb-3">Ingredients</h5>
-            <p>✅ ${mealDetails.strIngredient1}</p>
-            <p>✅ ${mealDetails.strIngredient2}</p>
-            <p>✅ ${mealDetails.strIngredient3}</p>
-            <p>✅ ${mealDetails.strIngredient4}</p>
-            <p>✅ ${mealDetails.strIngredient5}</p>
-            <p>✅ ${mealDetails.strIngredient6}</p>
-            <p>✅ ${mealDetails.strIngredient7}</p>
-            <p>✅ ${mealDetails.strIngredient8}</p>
-            <p>✅ ${mealDetails.strIngredient9}</p>
-            <p>✅ ${mealDetails.strIngredient10}</p> 
-        </div>
-        </div>
-        `;
+    <div id="mealCard" class="card" style="width: 35rem;">
+      <img src="${mealDetails.strMealThumb}" alt="Meal">
+      <div class="card-body" id="mealCardIN">
+          <h2 class="card-title py-2">${mealDetails.strMeal}</h2>
+          <h5 class="pb-3">Ingredients</h5> 
 
-        
+      </div>
+      </div>
+      `;
+const value = Object.values(mealDetails);
+console.log(value);
+for(let i = 9; i < 20; i++){
+    if(value[i] === null || value[i] === " "){
+        break;
+    }
+    else{
+    const card = document.getElementById("mealCardIN");
+    const p = document.createElement("p");
+    p.innerText = "↪ " + value[i];
+    card.appendChild(p);
+    }
+ }
+
 }
-
-
 
